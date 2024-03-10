@@ -1,0 +1,91 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:171358186705:task-definition/nodejs-deploy-task:1",
+    "containerDefinitions": [
+        {
+            "name": "nodejsapp",
+            "image": "171358186705.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:16d58b3411f38f2d6f12675945a4555d7b170f0b",
+            "cpu": 1024,
+            "memory": 3072,
+            "memoryReservation": 1024,
+            "portMappings": [
+                {
+                    "name": "nodejs",
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/nodejs-deploy-task",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": [],
+            "resourceRequirements": [
+                {
+                    "value": "1",
+                    "type": "GPU"
+                }
+            ]
+        }
+    ],
+    "family": "nodejs-deploy-task",
+    "executionRoleArn": "arn:aws:iam::171358186705:role/ecsTaskExecutionRole",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-03-10T16:12:48.323Z",
+    "registeredBy": "arn:aws:iam::171358186705:root",
+    "tags": []
+}
