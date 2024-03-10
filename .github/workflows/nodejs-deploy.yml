@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ["master" ]
+    branches: ["master"]
   pull_request:
     branches: ["master"]
 env:
@@ -30,7 +30,7 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
-        
+
       - name: Build, tag, and push docker image to Amazon ECR Public
         id: build-image
         env:
@@ -42,12 +42,12 @@ jobs:
           docker build -t public.ecr.aws/${{secrets.ECR_REGISTRY_ALIAS}}/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push public.ecr.aws/${{secrets.ECR_REGISTRY_ALIAS}}/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=public.ecr.aws/${{secrets.ECR_REGISTRY_ALIAS}}/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-          
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: nodejs-deploy-revision1.json
+          task-definition: nodejs-test-not-work-revision1.json
           container-name: ${{ secrets.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
@@ -57,4 +57,4 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ secrets.ECS_SERVICE }}
           cluster: ${{ secrets.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          wait-for-service-stability: false
