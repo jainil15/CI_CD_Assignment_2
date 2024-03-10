@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "nodejsapp",
-            "image": "public.ecr.aws/d6k9d4i8/nodejsapp:latest",
+            "image": "public.ecr.aws/d6k9d4i8/nodejsapp",
             "cpu": 0,
             "portMappings": [
                 {
