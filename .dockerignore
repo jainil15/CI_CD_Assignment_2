@@ -1,2 +1,5 @@
 node_modules/
 Assignment_1.pdf
+/.git
+/.github
+.gitignore
