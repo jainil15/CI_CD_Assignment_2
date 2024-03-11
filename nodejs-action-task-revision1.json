@@ -1,10 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:171358186705:task-definition/11-1-test:3",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:171358186705:task-definition/nodejs-action-task:1",
     "containerDefinitions": [
         {
             "name": "nodejsapp",
-            "image": "171358186705.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:f3d48c71ee5b5eccf00d341f4add9f8cddd62b40",
-            "cpu": 0,
+            "image": "171358186705.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:latest",
+            "cpu": 307,
             "portMappings": [
                 {
                     "name": "nodejsapp-3000-tcp",
@@ -24,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/11-1-test",
+                    "awslogs-group": "/ecs/nodejs-action-task",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -33,9 +33,9 @@
             "systemControls": []
         }
     ],
-    "family": "11-1-test",
+    "family": "nodejs-action-task",
     "executionRoleArn": "arn:aws:iam::171358186705:role/ecsTaskExecutionRole",
-    "revision": 3,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -68,13 +68,13 @@
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "300",
-    "memory": "300",
+    "cpu": "410",
+    "memory": "500",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-03-10T17:44:01.061Z",
+    "registeredAt": "2024-03-11T05:25:46.293Z",
     "registeredBy": "arn:aws:iam::171358186705:root",
     "tags": []
 }
